@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hãy chọn cái bạn thích</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f0f0f0; margin: 0; padding: 20px; }
+    h1 { text-align: center; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+    .video-card { background: white; border-radius: 8px; overflow: hidden; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    video { width: 100%; display: block; }
+    .title { padding: 10px; font-weight: bold; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>Hãy chọn cái bạn thích</h1>
+  <div class="grid" id="videoGrid"></div>
+
+  <script>
+    const demoSrc = "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4";
+
+    const items = [
+      { title: 'TikTok Shop 1', url: 'https://vt.tiktok.com/ZS1111111/', src: demoSrc },
+      { title: 'TikTok Shop 2', url: 'https://vt.tiktok.com/ZS2222222/', src: demoSrc },
+      { title: 'TikTok Shop 3', url: 'https://vt.tiktok.com/ZS3333333/', src: demoSrc },
+      { title: 'TikTok Shop 4', url: 'https://vt.tiktok.com/ZS4444444/', src: demoSrc },
+      { title: 'TikTok Shop 5', url: 'https://vt.tiktok.com/ZS5555555/', src: demoSrc },
+      { title: 'TikTok Shop 6', url: 'https://vt.tiktok.com/ZS6666666/', src: demoSrc },
+      { title: 'TikTok Shop 7', url: 'https://vt.tiktok.com/ZS7777777/', src: demoSrc },
+      { title: 'TikTok Shop 8', url: 'https://vt.tiktok.com/ZS8888888/', src: demoSrc },
+      { title: 'TikTok Shop 9', url: 'https://vt.tiktok.com/ZS9999999/', src: demoSrc },
+      { title: 'TikTok Shop 10', url: 'https://vt.tiktok.com/ZS0000000/', src: demoSrc },
+    ];
+
+    const grid = document.getElementById('videoGrid');
+
+    items.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'video-card';
+      card.innerHTML = `
+        <video src="${item.src}" autoplay loop muted playsinline></video>
+        <div class="title">${item.title}</div>
+      `;
+      card.addEventListener('click', () => {
+        window.open(item.url, '_blank');
+      });
+      grid.appendChild(card);
+    });
+  </script>
+</body>
+</html>
